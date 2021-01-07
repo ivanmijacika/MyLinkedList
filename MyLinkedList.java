@@ -76,7 +76,16 @@ public class MyLinkedList{
   }
 
   public String toString(){
-
+    String s = "";
+    Node current = start;
+    s += "[";
+    while (current != null){
+      s += current.getData();
+      current = current.getNext();
+      if (current != end) s += ", ";
+    }
+    s += "]";
+    return s;
   }
 
 }
