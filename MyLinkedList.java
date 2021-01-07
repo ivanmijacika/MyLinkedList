@@ -37,10 +37,15 @@ public class MyLinkedList{
       size++;
     }
     else {
+      int i = 0;
       Node current = start;
-      for (int i=0; i<index; i++){
+      while (index > i){
 	current = current.getNext();
+	i++;
       }
+ //     for (int i=0; i<index; i++){
+//	current = current.getNext();
+  //    }
       Node n = new Node(value);
       //setting up links
       n.setNext(current);

@@ -1,9 +1,9 @@
 public class Node{
+  private String data;
+  private Node next, prev;
   public Node(String value){
     data = value;
   }
-  private String data;
-  private Node next,prev;
 
   public String getData(){
     return data;
@@ -25,7 +25,7 @@ public class Node{
     return prev;
   }
 
-  public void setPrev(Node Prev){
+  public void setPrev(Node prev){
     this.prev = prev;
   }
 }
