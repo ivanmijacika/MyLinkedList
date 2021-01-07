@@ -63,7 +63,16 @@ public class MyLinkedList{
   }
 
   public String set(int index, String value){
-
+    if (index > size() || index < 0) throw new IndexOutOfBoundsException("Index" + index + "is out of bounds.");
+    else{
+      Node current = start;
+      for (int i=0; i<index; i++){
+	current = current.getNext();
+      }
+      String temp = current.getData();
+      current.setData(value);
+      return temp;
+    }
   }
 
   public String toString(){
