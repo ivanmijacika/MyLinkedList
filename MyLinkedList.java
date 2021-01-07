@@ -80,9 +80,9 @@ public class MyLinkedList{
     Node current = start;
     s += "[";
     while (current != null){
+      if (current != start) s += ", ";
       s += current.getData();
       current = current.getNext();
-      if (current != end) s += ", ";
     }
     s += "]";
     return s;
