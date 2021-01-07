@@ -102,6 +102,8 @@ public class MyLinkedList{
       }
       (current.getPrev()).setNext(current.getNext());
       (current.getNext()).setPrev(current.getPrev());
+      current.setPrev(null);
+      current.setNext(null);
       return current.getData();
     }
   }
