@@ -52,7 +52,14 @@ public class MyLinkedList{
   }
 
   public String get(int index){
-
+    if (index > size() || index < 0) throw new IndexOutOfBoundsException("Index" + index + "is out of bounds.");
+    else{
+      Node current = start;
+      for (int i=0; i<index; i++){
+	current = current.getNext();
+      }
+      return current.getData();
+    }
   }
 
   public String set(int index, String value){
