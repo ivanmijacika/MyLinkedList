@@ -93,4 +93,8 @@ public class MyLinkedList{
     return s;
   }
 
+  public String remove(int index){
+
+  }
+
 }
