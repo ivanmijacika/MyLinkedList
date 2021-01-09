@@ -28,15 +28,7 @@ public class MyLinkedList{
 
   public void add(int index, String value){
     if (index > size() || index < 0) throw new IndexOutOfBoundsException("Index" + index + "is out of bounds.");
-    else if (size()==0) add(value);
-    else if (index==size()){
-      Node n = new Node(value);
-      n.setNext(null);
-      n.setPrev(end);
-      end.setNext(n);
-      end = n;
-      size++;
-    }
+    else if (size()==0 || index==size()) add(value);
     else if (index==0){
       Node n = new Node(value);
       n.setNext(start);
