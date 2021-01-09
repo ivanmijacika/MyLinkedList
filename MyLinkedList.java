@@ -45,10 +45,7 @@ public class MyLinkedList{
       size++;
     }
     else {
-      Node current = start;
-      for (int i=0; i<index; i++){
-	current = current.getNext();
-      }
+      Node current = findNode(index);
       Node n = new Node(value);
       //setting up links
       n.setNext(current);
@@ -62,10 +59,7 @@ public class MyLinkedList{
   public String get(int index){
     if (index > size() || index < 0) throw new IndexOutOfBoundsException("Index" + index + "is out of bounds.");
     else{
-      Node current = start;
-      for (int i=0; i<index; i++){
-	current = current.getNext();
-      }
+      Node current = findNode(index);
       return current.getData();
     }
   }
@@ -73,10 +67,7 @@ public class MyLinkedList{
   public String set(int index, String value){
     if (index > size() || index < 0) throw new IndexOutOfBoundsException("Index" + index + "is out of bounds.");
     else{
-      Node current = start;
-      for (int i=0; i<index; i++){
-	current = current.getNext();
-      }
+      Node current = findNode(index);
       String temp = current.getData();
       current.setData(value);
       return temp;
@@ -104,15 +95,20 @@ public class MyLinkedList{
       return "wow";  //placeholder
     }
     else {
-      Node current = start;
-      for (int i=0; i<index; i++){
-	current = current.getNext();
-      }
+      Node current = findNode(index);
       (current.getPrev()).setNext(current.getNext());
       (current.getNext()).setPrev(current.getPrev());
       size--;
       return current.getData(); //is temp needed?
     }
+  }
+
+  private Node findNode(int index){
+    Node current = start;
+    for (int i=0; i<index; i++){
+      current = current.getNext();
+    }
+    return current;
   }
 
 }
