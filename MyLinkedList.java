@@ -28,7 +28,15 @@ public class MyLinkedList{
 
   public void add(int index, String value){
     if (index > size() || index < 0) throw new IndexOutOfBoundsException("Index" + index + "is out of bounds.");
-    else if (size==0) add(value);
+    else if (size()==0) add(value);
+    else if (index==size()){
+      Node n = new Node(value);
+      n.setNext(null);
+      n.setPrev(end);
+      end.setNext(n);
+      end = n;
+      size++;
+    }
     else if (index==0){
       Node n = new Node(value);
       n.setNext(start);
@@ -37,15 +45,10 @@ public class MyLinkedList{
       size++;
     }
     else {
-      int i = 0;
       Node current = start;
-      while (index > i){
+      for (int i=0; i<index; i++){
 	current = current.getNext();
-	i++;
       }
- //     for (int i=0; i<index; i++){
-//	current = current.getNext();
-  //    }
       Node n = new Node(value);
       //setting up links
       n.setNext(current);
@@ -99,6 +102,7 @@ public class MyLinkedList{
       (start.getNext()).setPrev(null);
       start.setNext(null);
       start = start.getNext();
+      return "wow";  //placeholder
     }
     else {
       Node current = start;
