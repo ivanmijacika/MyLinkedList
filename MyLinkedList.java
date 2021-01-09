@@ -97,10 +97,9 @@ public class MyLinkedList{
   }
 
   public String remove(int index){
-    if (index > size() || index < 0) throw new IndexOutOfBoundsException("Index" + index + "is out of bounds.");
+    if (index >= size() || index < 0) throw new IndexOutOfBoundsException("Index" + index + "is out of bounds.");
     else if (index==0){
       (start.getNext()).setPrev(null);
-      start.setNext(null);
       start = start.getNext();
       return "wow";  //placeholder
     }
@@ -111,9 +110,8 @@ public class MyLinkedList{
       }
       (current.getPrev()).setNext(current.getNext());
       (current.getNext()).setPrev(current.getPrev());
-      current.setPrev(null);
-      current.setNext(null);
-      return current.getData();
+      size--;
+      return current.getData(); //is temp needed?
     }
   }
 
