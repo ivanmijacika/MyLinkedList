@@ -120,4 +120,14 @@ public class MyLinkedList{
     return current;
   }
 
+  public void extend(MyLinkedList other){
+    size += other.size();
+    end.setNext(other.start);
+    (other.start).setPrev(end);
+    end = other.end;
+    other.size = 0;
+    other.end = null;
+    other.start = null;
+  }
+
 }
