@@ -130,4 +130,19 @@ public class MyLinkedList{
     other.start = null;
   }
 
+  public String toStringReversed(){
+    String s = "";
+    Node current = end;
+    s += "[";
+    while (current != null){
+      if (current != end){
+        s += ", ";
+      }
+      s += current.getData();
+      current = current.getPrev();
+    }
+    s += "]";
+    return s;
+  }
+
 }
