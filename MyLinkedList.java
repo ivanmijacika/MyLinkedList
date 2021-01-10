@@ -95,12 +95,20 @@ public class MyLinkedList{
       size--;
       return temp;
     }
+    else if (size()==1){
+      String temp = start.getData();
+      start = null;
+      end = null;
+      size = 0;
+      return temp;
+    }
     else {
       Node current = findNode(index);
+      String temp = current.getData();
       (current.getPrev()).setNext(current.getNext());
       (current.getNext()).setPrev(current.getPrev());
       size--;
-      return current.getData(); //is temp needed?
+      return temp; //is temp needed?
     }
   }
 
