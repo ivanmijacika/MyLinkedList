@@ -81,6 +81,13 @@ public class MyLinkedList{
 
   public String remove(int index){
     if (index >= size() || index < 0) throw new IndexOutOfBoundsException("Index" + index + "is out of bounds.");
+    else if (size()==1){
+      String temp = start.getData();
+      start = null;
+      end = null;
+      size = 0;
+      return temp;
+    }
     else if (index==0){
       String temp = start.getData();
       start = start.getNext();
@@ -93,13 +100,6 @@ public class MyLinkedList{
       end = end.getPrev();
       end.setNext(null);
       size--;
-      return temp;
-    }
-    else if (size()==1){
-      String temp = start.getData();
-      start = null;
-      end = null;
-      size = 0;
       return temp;
     }
     else {
